@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:validator="http://schemas.android.com/apk/res-auto/net.granoeste.validator"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity2" >
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/textPersonName"
+        android:inputType="textPersonName"
+        validator:message="PersonName is required "
+        validator:required="true" />
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/textPassword"
+        android:inputType="textPassword"
+        validator:label="@string/textPassword"
+        validator:minlength="8"
+        validator:required="true" />
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/numberPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/numberPassword"
+        android:inputType="numberPassword"
+        validator:intRange="0,9999"
+        validator:isInteger="true"
+        validator:label="@string/numberPassword"
+        validator:maxlength="4"
+        validator:minlength="4" />
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/textEmailAddress"
+        android:inputType="textEmailAddress"
+        validator:isEmail="true"
+        validator:label="@string/textEmailAddress" />
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        validator:label="@string/phone"
+        validator:mask="^0[0-9]{4}-[0-9]{1}-[0-9]{3,4}$|^0[0-9]{3}-[0-9]{2}-[0-9]{3,4}$|^0[0-9]{2}-[0-9]{3}-[0-9]{3,4}$|^0[0-9]{1}-[0-9]{4}-[0-9]{3,4}$|^0[0-9]{2}-[0-9]{4}-[0-9]{4}$|^0120-[0-9]{3}-[0-9]{3}$|^\\d{1,6}-\\d{1,4}-\\d{1,4}$" />
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/textPostalAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/textPostalAddress"
+        android:inputType="textPostalAddress"
+        validator:label="@string/textPostalAddress"
+        validator:mask="^[0-9]{3}-[0-9]{4}$" />
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/number"
+        android:inputType="number"
+        validator:isInteger="true"
+        validator:label="@string/number" />
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/numberDecimal"
+        android:inputType="numberDecimal"
+        validator:isDouble="true"
+        validator:label="Number Decimal" />
+
+    <net.granoeste.validator.ValidatableEditText
+        android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        validator:isDate="MM.dd.yyyy"
+        validator:message="Enter the date in the format &quot;12.31.1975&quot;. "
+        android:inputType="date" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</LinearLayout>

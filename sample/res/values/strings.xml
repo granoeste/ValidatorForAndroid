@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">granoeste-validator-sample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <!-- Label -->
+    <string name="textPersonName">PersonName</string>
+    <string name="textPassword">Password</string>
+    <string name="numberPassword">Number Password</string>
+    <string name="textEmailAddress">EmailAddress</string>
+    <string name="phone">Phone</string>
+    <string name="textPostalAddress">Postal Address</string>
+    <string name="number">Number</string>
+    <string name="numberDecimal">Number Decimal</string>
+    <string name="title_activity_main_activity2">MainActivity2</string>
+
+</resources>

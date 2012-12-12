@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="PersonName"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="textPassword"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/numberPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="numberPassword"
+        android:inputType="numberPassword" />
+
+    <EditText
+        android:id="@+id/textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="textEmailAddress"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="phone"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/textPostalAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="textPostalAddress"
+        android:inputType="textPostalAddress" />
+
+
+    <EditText
+        android:id="@+id/number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="number"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="numberDecimal"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</LinearLayout>

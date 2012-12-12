@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="errors_required">%1$s is required.</string>
+    <string name="errors_minlength">%1$s can not be less than %2$d characters.</string>
+    <string name="errors_maxlength">%1$s can not be greater than %2$d characters.</string>
+    <string name="errors_mask">%1$s is invalid.</string>
+    <string name="errors_isInteger">%1$s must be an integer.</string>
+    <string name="errors_isDouble">%1$s must be an double.</string>
+    <string name="errors_isDate">%1$s is not a date.</string>
+    <string name="errors_range">%1$s is not in the range %2$d through %3$d.</string>
+    <string name="errors_intRange">%1$s is not in the range %2$d through %3$d.</string>
+    <string name="errors_doubleRange">%1$s is not in the range %2$d through %3$d.</string>
+    <string name="errors_isEmail">%1$s is an invalid e-mail address.</string>
+    <string name="errors_isUrl">%1$s is an invalid url (web address).</string>
+
+</resources>
