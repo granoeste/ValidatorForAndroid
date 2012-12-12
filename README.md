@@ -65,11 +65,75 @@ It can be done by extending the BaseValidator.
         }
 
     }
+    
+#### ValidatableEditText
+You can use ValidatableEditText.
+It is extended to EditText, has the validator.
+
+Here is an example of layout.xml
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:validator="http://schemas.android.com/apk/res-auto/net.granoeste.validator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <net.granoeste.validator.ValidatableEditText
+            android:id="@+id/textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            validator:message="PersonName is required "
+            validator:required="true" />
+
+        <net.granoeste.validator.ValidatableEditText
+            android:id="@+id/textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            validator:label="@string/textPassword"
+            validator:minlength="8"
+            validator:required="true" />
+
+    </LinearLayout>
+
+Here is an example of Activity:
+
+    // Validators
+    Validators mValidators = new Validators();
+
+    net.granoeste.validator.ValidatableEditText mTextPersonName;
+    net.granoeste.validator.ValidatableEditText mTextPassword;
+    Button mButton;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mTextPersonName = (net.granoeste.validator.ValidatableEditText) findViewById(R.id.textPersonName);
+        mTextPassword = (net.granoeste.validator.ValidatableEditText) findViewById(R.id.textPassword);
+        mButton = findViewByIdAndCast(v, R.id.button);
+
+        // add ValidatableEditText to Validators
+        mValidators.put(mTextPersonName);
+        mValidators.put(mTextEmailAddress);
+
+        mButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Execute Validators
+                    mValidators.clearError();
+                    if (mValidators.isValid()) {
+                        Toast.makeText(getApplicationContext(), "It has some errors. ", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });    
+    }
+
 License
 ---------------
 * [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 
-Known Issues
+Known
 ---------------
-Some classes wrap the apache commons validator. Therefore, the size is slightly larger class unnecessary.
+* Some classes wrap the apache commons validator.
+* This uses the Jakarta-ORO
