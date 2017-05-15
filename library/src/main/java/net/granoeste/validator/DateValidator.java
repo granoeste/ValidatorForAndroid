@@ -16,9 +16,9 @@
 
 package net.granoeste.validator;
 
-import java.util.Locale;
-
 import android.text.TextUtils;
+
+import java.util.Locale;
 
 public class DateValidator extends BaseValidator {
 
