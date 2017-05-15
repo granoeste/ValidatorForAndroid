@@ -23,3 +23,18 @@ android {
 dependencies {
     compile 'oro:oro:2.0.8'
 }
+
+def repo = new File(rootDir, "repository")
+
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://${repo.absolutePath}"
+            pom.version = '0.0.5'             // version
+            pom.groupId = 'net.granoeste'    // グループ名
+            pom.artifactId = 'validator' // ライブラリ名
+        }
+    }
+}
