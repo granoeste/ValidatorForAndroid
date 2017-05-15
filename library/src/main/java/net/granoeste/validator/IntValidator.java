@@ -18,6 +18,9 @@ package net.granoeste.validator;
 
 import android.text.TextUtils;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 public class IntValidator extends BaseValidator {
 
     public IntValidator(final String errorMessage) {
@@ -30,9 +33,9 @@ public class IntValidator extends BaseValidator {
             if (TextUtils.isEmpty(value)) {
                 return true;
             }
-            Integer.parseInt(value);
-            return true;
-        } catch (final NumberFormatException e) {
+            Number number = NumberFormat.getInstance().parse(value);
+            return number instanceof Long;
+        } catch (ParseException e) {
         }
         return false;
     }

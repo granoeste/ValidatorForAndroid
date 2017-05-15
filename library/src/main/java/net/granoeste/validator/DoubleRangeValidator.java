@@ -18,6 +18,9 @@ package net.granoeste.validator;
 
 import android.text.TextUtils;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 public class DoubleRangeValidator extends BaseValidator {
     double mMin;
     double mMax;
@@ -35,9 +38,10 @@ public class DoubleRangeValidator extends BaseValidator {
             if (TextUtils.isEmpty(value)) {
                 return true;
             }
-            final double d = Double.parseDouble(value);
+            Number number = NumberFormat.getInstance().parse(value);
+            final double d = number.doubleValue();
             return mMin <= d && d <= mMax;
-        } catch (final NumberFormatException e) {
+        } catch (ParseException e) {
         }
         return false;
     }

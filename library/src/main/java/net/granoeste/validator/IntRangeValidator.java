@@ -18,6 +18,9 @@ package net.granoeste.validator;
 
 import android.text.TextUtils;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 public class IntRangeValidator extends BaseValidator {
     int mMin;
     int mMax;
@@ -34,11 +37,15 @@ public class IntRangeValidator extends BaseValidator {
             return true;
         }
         try {
-            final int i = Integer.parseInt(value);
+            Number number = NumberFormat.getInstance().parse(value);
+            if (!(number instanceof Long)) {
+                return false;
+            }
+            final int i = number.intValue();
             return mMin <= i && i <= mMax;
-        } catch (final NumberFormatException e) {
-            return false;
+        } catch (ParseException e) {
         }
+        return false;
     }
 
 }

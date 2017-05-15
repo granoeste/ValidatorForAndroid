@@ -18,6 +18,9 @@ package net.granoeste.validator;
 
 import android.text.TextUtils;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 public class DoubleValidator extends BaseValidator {
 
     public DoubleValidator(final String errorMessage) {
@@ -30,9 +33,9 @@ public class DoubleValidator extends BaseValidator {
             if (TextUtils.isEmpty(value)) {
                 return true;
             }
-            Double.parseDouble(value);
-            return true;
-        } catch (final NumberFormatException e) {
+            Number number = NumberFormat.getInstance().parse(value);
+            return number instanceof Double;
+        } catch (ParseException e) {
         }
         return false;
     }

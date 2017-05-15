@@ -360,6 +360,52 @@ public class ValidatorTest extends android.test.ActivityUnitTestCase<TestActivit
     }
 
     @MediumTest
+    public void testNumberFormatIntRangeValidator() throws Exception {
+        final IntRangeValidator validator = new IntRangeValidator(
+                1000, 5000000, INVALID);
+
+        edit.setText("1,000");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("5,000");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("1,000,000");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("5,000,000");
+        assertTrue(validator.isValid(edit));
+
+        // invalid
+        edit.setText("100");
+        assertFalse(validator.isValid(edit));
+
+        edit.setText("5,000,001");
+        assertFalse(validator.isValid(edit));
+
+        edit.setText("5,100,000");
+        assertFalse(validator.isValid(edit));
+
+        edit.setText("999,000,000");
+        assertFalse(validator.isValid(edit));
+
+        // irregular
+
+        edit.setText("1000,000");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("5000,000");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("500,0000");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("900,0000");
+        assertFalse(validator.isValid(edit));
+
+    }
+
+    @MediumTest
     public void testDoubleRangeValidator() throws Exception {
         final DoubleRangeValidator validator = new DoubleRangeValidator(
                 0.01d, 11.89d, INVALID);
@@ -408,6 +454,57 @@ public class ValidatorTest extends android.test.ActivityUnitTestCase<TestActivit
         edit.setText("１２３");
         assertFalse(validator.isValid(edit));
 
+    }
+
+    @MediumTest
+    public void testNumberFormatDoubleRangeValidator() throws Exception {
+        final DoubleRangeValidator validator = new DoubleRangeValidator(
+                0.10d, 5000000.89d, INVALID);
+
+        edit.setText("1,000.01");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("1,100.89");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("1,000");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("1,000.1");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("1,100.0");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("1,000.011");
+        assertTrue(validator.isValid(edit));
+
+        // invalid
+        edit.setText("0.01");
+        assertFalse(validator.isValid(edit));
+
+        edit.setText("500,0000.891");
+        assertFalse(validator.isValid(edit));
+
+        edit.setText("500,0000.9");
+        assertFalse(validator.isValid(edit));
+
+        edit.setText("900,0000.999");
+        assertFalse(validator.isValid(edit));
+
+        // irregular
+
+        edit.setText("1000,000.88");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("5000,000.88");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("500,0000.88");
+        assertTrue(validator.isValid(edit));
+
+        edit.setText("900,0000.88");
+        assertFalse(validator.isValid(edit));
     }
 
     @MediumTest

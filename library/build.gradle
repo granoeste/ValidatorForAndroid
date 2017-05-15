@@ -1,5 +1,10 @@
 apply plugin: 'com.android.library'
 
+// Manifest version
+def versionMajor = 0
+def versionMinor = 1
+def versionPatch = 0
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -8,8 +13,8 @@ android {
         minSdkVersion 4
         targetSdkVersion 25
 
-        versionCode 50
-        versionName "0.0.5"
+        versionCode versionMajor * 100 + versionMinor * 10 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
     }
 
     buildTypes {
@@ -32,9 +37,9 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository url: "file://${repo.absolutePath}"
-            pom.version = '0.0.5'             // version
-            pom.groupId = 'net.granoeste'    // グループ名
-            pom.artifactId = 'validator' // ライブラリ名
+            pom.version = "${versionMajor}.${versionMinor}.${versionPatch}" // version
+            pom.groupId = 'net.granoeste'   // グループ名
+            pom.artifactId = 'validator'    // ライブラリ名
         }
     }
 }
