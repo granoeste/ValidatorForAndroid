@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 // Manifest version
 def versionMajor = 0
-def versionMinor = 1
+def versionMinor = 9
 def versionPatch = 0
 
 android {
